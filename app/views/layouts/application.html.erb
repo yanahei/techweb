@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Techweb</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:300|Noto+Sans+JP:300&display=swap&subset=japanese" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="nav_var">
+        <div class="container">
+          <ul>
+            <li><a href="\">HOME</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    
+    <%= yield %>
+    
+    <footer>
+      <p>Copyright ©︎ 1981 - 2019 株式会社テクノグループ All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
