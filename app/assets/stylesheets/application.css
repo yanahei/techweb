@@ -29,8 +29,8 @@ h1 {
 }
 
 h2, h3 {
-  padding: 3px;
   border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
   font-size: 1.2em;
 }
 
@@ -68,7 +68,7 @@ header {
 .nav_var li {
   margin: 0 auto;
   display: block;
-  width: 185px;
+  width: 250px;
   text-align: center;
   float: left;
 }
@@ -109,8 +109,8 @@ header {
 .contents.row {
   clear: both;
   width: 700px;
-  margin: 45px auto;
-  padding: 10px;
+  margin: 25px auto;
+  padding: 5px;
   border: 1px solid lightgray;
   border-radius: 4px;
   text-align: center;
