@@ -1,0 +1,19 @@
+<div class="contents row">
+  <%= form_for @posts, url: posts_path do |f| %>
+    <table>
+      <tr>
+        <th><%= f.label :title, "タイトル" %></th>
+        <td><%= f.text_field :title %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :body, "本文" %></th>
+        <td><%= f.text_area :body %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :pdfs, "添付ファイル" %></th>
+        <td><%= f.file_field :pdfs, multiple: true %></td>
+      </tr>
+    </table>
+    <%= f.submit "投稿"%>
+<% end %>
+</div>

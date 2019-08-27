@@ -5,6 +5,11 @@
         <div class="contents row">
           <h3><%= post.title %></h3>
           <p><%= post.body %></p>
+          <% if post.pdfs.attached? %>
+            <% post.pdfs.each do |pdf| %>
+              <%= link_to pdf.filename, rails_blob_path(pdf) %>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
     <p><%= paginate(@posts) %></p>
