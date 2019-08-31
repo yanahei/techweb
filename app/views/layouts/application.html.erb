@@ -15,9 +15,16 @@
     <header>
       <div class="nav_var">
         <div class="container">
+          <%= form_tag root_path, :method => 'get' do %>
+            <%= text_field_tag :search, params[:search]  %>
+            <%= submit_tag 'Search', :name => nil %>
+          <% end %>
           <ul>
-            <li><a href="\">テクノグループ</a></li>
-            <li><%= link_to "投稿の一時リンク", "/posts/new" %></li>
+            <li><%= link_to "ホーム", "/" %></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "マイページ", user_path(current_user) %></li>
+            <% end %>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
           </ul>
         </div>
       </div>
@@ -26,7 +33,7 @@
     <%= yield %>
     
     <footer>
-      <p>Copyright ©︎ 1981 - 2019 株式会社テクノグループ All Rights Reserved.</p>
+      <strong>Copyright ©︎ 1981  -<%= Date.current.strftime('%Y')  %> 株式会社テクノグループ All Rights Reserved.</strong>
     </footer>
   </body>
 </html>

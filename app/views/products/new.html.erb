@@ -1,0 +1,10 @@
+<div class="contents row">
+  <h1>ソフトウェアアップロード</h1>
+  <%= form_for (@product) do |f| %>
+    
+    <%= f.label :data, 'データ' %>
+    <%= f.file_field :data %>
+    
+    <%= f.submit "アップロード"%>
+  <% end %>
+</div>

@@ -1,11 +1,4 @@
-<% if current_user.try(:admin?) %>
-  <div class="contents row">
-    <h2>管理者マイページ</h2>
-　  <p class="btn-gradient-flat"><%= link_to "管理画面", "/admin" %></p>
-　</div>
-<% else %>
-  <div class="contents row">
-    <p><%= @name %>さん、こんにちは！</p>
-    <p>所在地 : <%= @address %></p>
-  </div>
-<% end %>
+<div class="contents row">
+  <p><%= @name %>さん、こんにちは！</p>
+  <p>所在地 : <%= @address %></p>
+</div>

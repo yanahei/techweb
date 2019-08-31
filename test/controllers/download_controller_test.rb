@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class DocumentTest < ActiveSupport::TestCase
+class DownloadControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

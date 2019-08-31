@@ -1,0 +1,9 @@
+<div class="wrapper">
+<h2>ソフトダウンロードページ</h2>
+<div class="contents row">
+  <% @products.each do |product| %>
+    <p><%= product.created_at %></p>
+    <p><%= button_to product.filename, product_download_path(product.id), method: :get %></p>
+  <% end %>
+</div>
+</div>

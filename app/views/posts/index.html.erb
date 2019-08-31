@@ -3,20 +3,29 @@
     <h2>新着情報</h2>
       <% @posts.each do |post| %>
         <div class="contents row">
-          <h3><%= post.title %></h3>
+          <small><%= post[:created_at].strftime('%Y年%m月%d日 %H:%M') %></small>
+          <h3><%= link_to post.title, "posts/#{post.id}", method: :get %></h3>
           <p><%= post.body %></p>
-          <% if post.pdfs.attached? %>
-            <% post.pdfs.each do |pdf| %>
-              <%= link_to pdf.filename, rails_blob_path(pdf) %>
+          <p>
+            <% if post.pdfs.attached? %>
+              <% post.pdfs.each do |pdf| %>
+                <%= link_to pdf.filename, rails_blob_path(pdf) %>
+              <% end %>
             <% end %>
-          <% end %>
+          </p>
         </div>
       <% end %>
     <p><%= paginate(@posts) %></p>
   </div>
   <div class="side contents">
+  <% if current_user.try(:admin?) %>
+    <h2>管理者コンテンツ</h2>
+    <li><%= link_to "新着情報投稿", "/posts/new" %></li>
+　  <li><%= link_to "データ管理", "/admin" %></li>
+　  <li><%= link_to "ソフトアップロード", "/products/new" %></li>
+  <% end %>
     <h3>ダウンロードページ</h3>
     <p>最新のソフトダウンロードなどはこちら</p>
-      <a href="" class="btn-gradient-flat">ダウンロードページ</a>
+      <a href="/products/show" class="btn-gradient-flat">ダウンロードページ</a>
   </div>
 </div>
