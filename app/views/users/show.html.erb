@@ -1,4 +1,6 @@
 <div class="contents row">
   <p><%= @name %>さん、こんにちは！</p>
   <p>所在地 : <%= @address %></p>
+  <h2>お気に入り記事</h2>
+  <%= render 'posts/posts', posts: @favposts %>
 </div>

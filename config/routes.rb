@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users
+  devise_for :users, controllers: {
+    :registrations => 'users/registrations'
+  }
   # as :user do
   #   get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
   #   put 'users' => 'devise/registrations#update', :as => 'user_registration'
@@ -8,14 +10,13 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'posts#index'
   resources :posts
-  # get 'posts/:id' => 'posts#show'
-  # get 'posts/new' => 'posts#new'
-  # post 'posts' => 'posts#create'
   resources :products do
     get 'download'
   end
-  # get 'products/new' => 'products#new'
-  # post 'products' => 'products#create'
-  # get 'products/download' => 'products#download'
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      get :likes
+    end
+  end
+  resources :favorites, only: [:create, :destroy]
 end

@@ -1,0 +1,19 @@
+<% if posts.present? %>
+  <% posts.each do |post| %>
+    <div class="contents row">
+      <small><%= post[:created_at].strftime('%Y年%m月%d日 %H:%M') %></small>
+      <h3><%= link_to post.title, "posts/#{post.id}", method: :get %></h3>
+      <p><%= post.body %></p>
+      <p>
+        <% if post.pdfs.attached? %>
+          <% post.pdfs.each do |pdf| %>
+            <%= link_to pdf.filename, rails_blob_path(pdf) %>
+          <% end %>
+        <% end %>
+      </p>
+      <%= render 'favorites/like_button', post: post %>
+    </div>
+  <% end %>
+<% else %>
+  <p>ただいまお気に入りの記事はありません</p>
+<% end %>
