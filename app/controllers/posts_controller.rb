@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-
+  before_action :check_admin, only: [:new, :create, :edit, :update]
+  
   def index
     @posts = Post.all.search(params[:search]).order("created_at DESC").page(params[:page]).per(5)
   end

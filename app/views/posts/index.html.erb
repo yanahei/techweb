@@ -1,13 +1,18 @@
 <div class="wrapper">
   <div class="main contents">
     <h2>新着情報</h2>
-    <%= render 'posts/posts', posts: @posts %>
+    <% if @posts.present? %>
+      <%= render 'posts/posts', posts: @posts %>
+    <% else %>
+      <p>記事がありません。</p>
+    <% end %>
     <p><%= paginate(@posts) %></p>
   </div>
   <div class="side contents">
   <% if current_user.try(:admin?) %>
     <h2>管理者コンテンツ</h2>
     <li><%= link_to "新着情報投稿", "/posts/new" %></li>
+    <li><%= link_to "新規ユーザー登録", "/users/sign_up" %></li>
 　  <li><%= link_to "データ管理", "/admin" %></li>
 　  <li><%= link_to "ソフトアップロード", "/products/new" %></li>
   <% end %>

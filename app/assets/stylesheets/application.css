@@ -58,6 +58,16 @@ ul > li {
 header {
 }
 
+.site-title {
+  letter-spacing: 1px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.site-title-sub {
+  font-size: 0.8rem;
+}
+
 .container {
   width: 980px;
   margin: 0 auto;

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
-    :registrations => 'users/registrations'
+    :registrations => 'users/registrations',
   }
   # as :user do
   #   get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :products do
     get 'download'
   end
-  resources :users, only: [:show] do
+  resources :users do
     member do
       get :likes
     end

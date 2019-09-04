@@ -15,17 +15,19 @@
     <header>
       <div class="nav_var">
         <div class="container">
-          <%= form_tag root_path, :method => 'get' do %>
-            <%= text_field_tag :search, params[:search]  %>
-            <%= submit_tag 'Search', :name => nil %>
-          <% end %>
-          <ul>
-            <li><%= link_to "ホーム", "/" %></li>
-            <% if user_signed_in? %>
-              <li><%= link_to "マイページ", user_path(current_user) %></li>
+          <%= link_to "TECHNO GROUP", "/", class: "site-title" %>
+          <p><small class="site-title-sub">for the exclusive use of members</small></p>
+          <% if user_signed_in? %>
+            <%= form_tag root_path, :method => 'get' do %>
+              <%= text_field_tag :search, params[:search]  %>
+              <%= submit_tag 'Search', :name => nil %>
             <% end %>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-          </ul>
+            <ul>
+              <li><%= link_to "マイページ", user_path(current_user) %></li>
+              <li><%= link_to "登録情報編集", edit_user_path(current_user) %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          <% end %>
         </div>
       </div>
     </header>

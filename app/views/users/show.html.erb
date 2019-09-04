@@ -2,5 +2,9 @@
   <p><%= @name %>さん、こんにちは！</p>
   <p>所在地 : <%= @address %></p>
   <h2>お気に入り記事</h2>
-  <%= render 'posts/posts', posts: @favposts %>
+  <% if @favposts.present? %>
+    <%= render 'posts/posts', posts: @favposts %>
+  <% else %>
+    <p>お気に入り記事はありません。</p>
+  <% end %>
 </div>

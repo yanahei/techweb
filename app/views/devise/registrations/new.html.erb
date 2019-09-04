@@ -20,6 +20,16 @@
     <%= f.label :パスワード（確認） %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  
+  <div class="field">
+    <%= f.label :名前 %><br />
+    <%= f.text_field :name, autocomplete: "name" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :所在地 %><br />
+    <%= f.text_field :address, autocomplete: "address" %>
+  </div>
 
   <div class="actions">
     <%= f.submit "登録する" %>

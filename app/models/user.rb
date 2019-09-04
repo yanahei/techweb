@@ -21,4 +21,15 @@ class User < ApplicationRecord
     self.favposts.include?(post)
   end
   
+  def active_for_authentication?
+    super && is_enabled?
+  end
+  
+  def inactive_message
+    is_enabled? ? super : :status_disabled
+  end
+  
+  def is_enabled?
+    self.status == 'enabled'
+  end
 end

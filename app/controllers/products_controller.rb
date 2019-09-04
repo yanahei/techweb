@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :check_admin, only: [:new, :create, :edit, :update]
   
   def new
     @product = Product.new
