@@ -1,12 +1,21 @@
 <div class="contents row">
-  <small><%= @post[:created_at].strftime('%Y年%m月%d日 %H:%M') %></small>
-  <h3><%= @post.title %></h3>
-  <p><%= @post.body %></p>
-  <p>
-    <% if @post.pdfs.attached? %>
-      <% @post.pdfs.each do |pdf| %>
-        <%= link_to pdf.filename, rails_blob_path(pdf) %>
-      <% end %>
-    <% end %>
-  </p>
+  <div class="container">
+    <div class="shadow-sm card card-info mb-5">
+      <div class="card-header">
+        <h3><%= @post.title %></h3>
+        <small><%= @post[:created_at].strftime('%Y年%m月%d日 %H:%M') %></small>
+      </div>
+      <div class="card-body">
+        <p><%= @post.body %></p>
+        <p>
+          <% if @post.pdfs.attached? %>
+            <% @post.pdfs.each do |pdf| %>
+              <small>資料ダウンロード : </small>
+              <%= link_to pdf.filename, rails_blob_path(pdf) %>
+            <% end %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

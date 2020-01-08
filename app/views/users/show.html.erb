@@ -1,10 +1,13 @@
-<div class="contents row">
+<div class="container">
   <p><%= @name %>さん、こんにちは！</p>
-  <p>所在地 : <%= @address %></p>
-  <h2>お気に入り記事</h2>
-  <% if @favposts.present? %>
-    <%= render 'posts/posts', posts: @favposts %>
-  <% else %>
-    <p>お気に入り記事はありません。</p>
-  <% end %>
+  <div class="contents row">
+    <h4>ブックマーク記事</h4>
+    <div class="contents row">
+      <% if @favposts.present? %>
+        <%= render 'posts/posts', posts: @favposts %>
+      <% else %>
+        <p>ブックマーク記事はありません。</p>
+      <% end %>
+    </div>
+  </div>
 </div>

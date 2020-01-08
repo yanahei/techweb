@@ -62,7 +62,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'pry-rails'
-gem 'compass-rails', '3.1.0'
 gem 'sprockets', '3.7.2'
 gem 'hirb'
 gem 'hirb-unicode'
@@ -70,3 +69,5 @@ gem 'kaminari'
 gem 'devise'
 gem 'rails_admin', '~>1.3'
 gem 'cancancan', '~>2.0'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'

@@ -1,10 +1,12 @@
-<h2>ソフトウェアアップロード</h2>
 <div class="contents row">
-  <%= form_for (@product) do |f| %>
-    
-    <%= f.label :data, 'データ' %>
-    <%= f.file_field :data %>
-    
-    <%= f.submit "アップロード"%>
-  <% end %>
+  <div class="container">
+  <h4>ソフトウェアアップロード</h4>
+  <p> ※ zipファイルにしてからアップロードしてください</p>
+    <%= form_for (@product) do |f| %>
+    <div class="form-group">
+      <%= f.file_field :data, class: "shadow-sm form-control" %>
+    </div>
+      <%= f.submit "アップロード", class: "btn btn-info mt-3 mb-3" %>
+    <% end %>
+  </div>
 </div>

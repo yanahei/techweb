@@ -1,15 +1,20 @@
 <% posts.each do |post| %>
-  <div class="contents row">
-    <small><%= post[:created_at].strftime('%Y年%m月%d日 %H:%M') %></small>
-    <h3><%= link_to post.title, "posts/#{post.id}", method: :get %></h3>
-    <p><%= post.body %></p>
-    <p>
-      <% if post.pdfs.attached? %>
-        <% post.pdfs.each do |pdf| %>
-          <%= link_to pdf.filename, rails_blob_path(pdf) %>
+  <div class="container">
+    <div class="shadow-sm card card-info mb-5">
+      <div class="card-header">
+        <small class="text-secondary mb-3"><%= post[:created_at].strftime('%Y年%m月%d日') %></small>
+        <h5><%= link_to post.title, "/posts/#{post.id}", method: :get %></h5>
+      </div>
+      <p class="card-body"><%= post.body %></p>
+      <p>
+        <% if post.pdfs.attached? %>
+          <% post.pdfs.each do |pdf| %>
+            <small>資料ダウンロード : </small>
+            <%= link_to pdf.filename, rails_blob_path(pdf) %>
+          <% end %>
         <% end %>
-      <% end %>
-    </p>
-    <%= render 'favorites/like_button', post: post %>
+      </p>
+      <%= render 'favorites/like_button', post: post, class: "like_button" %>
+    </div>
   </div>
 <% end %>

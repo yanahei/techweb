@@ -1,21 +1,20 @@
-<div class="container">
-  <div class="contents row">
+<div class="contents row">
+  <div class="container">
+    <h4>新着情報の投稿</h4>
     <%= form_for @posts, url: posts_path do |f| %>
-      <table>
-        <tr>
-          <th><%= f.label :title, "タイトル" %></th>
-          <td><%= f.text_field :title %></td>
-        </tr>
-        <tr>
-          <th><%= f.label :body, "本文" %></th>
-          <td><%= f.text_area :body %></td>
-        </tr>
-        <tr>
-          <th><%= f.label :pdfs, "添付ファイル" %></th>
-          <td><%= f.file_field :pdfs, multiple: true %></td>
-        </tr>
-      </table>
-      <%= f.submit "投稿", class: "btn-gradient-flat" %>
-  <% end %>
+      <div class="form-group">
+        <%= f.label :title, "タイトル" %>
+        <%= f.text_field :title, class: "shadow-sm form-control col-12", placeholder: "title" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :body, "本文" %>
+        <%= f.text_area :body, class: "shadow-sm form-control col-12", placeholder: "text" ,rows: 10 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :pdfs, "添付ファイル"  %>
+        <%= f.file_field :pdfs, multiple: true, class: "shadow-sm form-control" %>
+      </div>
+        <%= f.submit "投稿", class: "btn btn-info mt-3 mb-3" %>
+    <% end %>
   </div>
 </div>
