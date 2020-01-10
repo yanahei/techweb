@@ -59,3 +59,6 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+server '133.167.33.230', user: 'vspuser', roles: %{app db web}, port: 10022
+
+set :ssh_options, keys: '~/.ssh/vspuser/id_rsa'
