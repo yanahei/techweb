@@ -19,7 +19,7 @@ namespace :unicorn do
   end
   
   desc "Start unicorn server"
-  task start: environment do
+  task start: :environment do
     don roles(:app) do
       start_unicorn
     end
