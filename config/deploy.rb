@@ -2,7 +2,7 @@
 lock "~> 3.11.2"
 
 set :application, "techweb"
-set :repo_url, "git@github.com:yanahei/technoqpweb.git"
+set :repo_url, "git@github.com:yanahei/technogpweb.git"
 
 set :branch, 'master'
 
