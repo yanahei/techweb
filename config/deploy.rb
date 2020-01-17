@@ -34,7 +34,7 @@ namespace :deploy do
       with rails_env: fetch(:rails_env) do
         within current_path do
           sql = "CREATE DATABASE IF NOT EXISTS techweb_production;"
-          execute "mysql --user=root --password=%4xU+YmZ -e '#{sql}'"
+          execute "mysql --user=root --password=BANANA'#{sql}'"
         end
       end
     end
