@@ -48,15 +48,9 @@ ActiveRecord::Schema.define(version: 2019_09_04_123029) do
     t.text "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.binary "documents", limit: 16777215
     t.bigint "user_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "filename"
-    t.binary "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -70,7 +64,7 @@ ActiveRecord::Schema.define(version: 2019_09_04_123029) do
     t.string "name"
     t.string "address"
     t.boolean "admin", default: false
-    t.string "status", default: "enabled"
+    t.string "status"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
