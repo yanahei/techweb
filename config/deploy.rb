@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.2"
 
-set :application, "techweb"
+set :application, "technogpweb"
 set :repo_url, "git@github.com:yanahei/technogpweb.git"
 
 set :branch, 'master'
@@ -34,7 +34,7 @@ namespace :deploy do
       with rails_env: fetch(:rails_env) do
         within current_path do
           sql = "CREATE DATABASE IF NOT EXISTS techweb_production;"
-          execute "mysql --user=root --password=BANANA'#{sql}'"
+          execute "mysql --user=root --password=%4xU+YmZ'#{sql}'"
         end
       end
     end
