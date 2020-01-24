@@ -2,7 +2,7 @@
 lock "~> 3.11.2"
 
 set :application, "technogpweb"
-set :repo_url, "git@github.com:yanahei/technogpweb.git"
+set :repo_url, "git@github.com:yanahei/techweb.git"
 
 set :branch, 'master'
 
@@ -31,8 +31,7 @@ namespace :deploy do
     on roles(:db) do |host|
       with rails_env: fetch(:rails_env) do
         within current_path do
-          sql = "CREATE DATABASE IF NOT EXISTS techweb_production;"
-          execute "mysql --user=root --password=%4xU+YmZ'#{sql}'"
+          execute :bundle, :exec, :rake, 'db:create'
         end
       end
     end
