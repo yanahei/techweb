@@ -31,7 +31,8 @@ namespace :deploy do
     on roles(:db) do |host|
       with rails_env: fetch(:rails_env) do
         within current_path do
-          execute :bundle, :exec, :rake, 'db:create'
+          sql = "CREATE DATABASE IF NOT EXISTS techweb_production;"
+          execute "mysql --user=root --password=BANANA -e '#{sql}"
         end
       end
     end
