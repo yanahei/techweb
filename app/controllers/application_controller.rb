@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   
   def is_disabled
     if current_user.status == 'disabled'
-      user_session = nil
+      #user_session = nil
       flash[:alert] = "アカウントが無効です"
     end
   end
