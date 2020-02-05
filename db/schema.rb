@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_04_123029) do
+ActiveRecord::Schema.define(version: 2020_02_03_204256) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(version: 2019_09_04_123029) do
     t.binary "documents", limit: 16777215
     t.bigint "user_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "filename"
+    t.binary "data", limit: 4294967295
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
