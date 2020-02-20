@@ -75,7 +75,6 @@ gem 'rails_admin', '~>2.0.0'
 gem 'cancancan', '~>2.0'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
-gem 'carrierwave'
 
 group :production, :staging do
   gem 'unicorn'
